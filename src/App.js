@@ -1,24 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import { Layout, Menu } from "antd";
+import { Typography } from "antd";
+// import AppHeader from "./components/layout/header";
+import LoginForm from "./components/login/LoginForm";
+import "./App.css";
+const { Header, Content } = Layout;
+const { Title } = Typography;
+
+const items = [
+  {
+    label: "Home",
+    key: "home",
+  },
+  {
+    label: "About Us",
+    key: "about-us",
+  },
+  {
+    label: "Dashboard",
+    key: "dashboard",
+  },
+];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout style={{ minHeight: "100vh" }}>
+      <Header>
+        <Menu
+          items={items}
+          mode="horizontal"
+          theme="dark"
+          selectedKeys={["home"]}
+        ></Menu>
+      </Header>
+      <Content className="p-5">
+        {/* <h1 className="mt-5 text-center">Login</h1> */}
+        <Title level={1} style={{ textAlign: "center" }}>
+          Login
+        </Title>
+        <LoginForm />
+      </Content>
+    </Layout>
   );
 }
 
