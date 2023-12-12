@@ -76,7 +76,7 @@ input,
 button,
 textarea,
 select {
-  font: inherit;
+  font: inherit !important;
 }
 
 /* Make sure textareas without a rows attribute are not tiny */
@@ -107,6 +107,11 @@ ul {
   margin: 0;
 }
 
+p {
+  margin: 0;
+  padding: 0;
+}
+
 /* Login page */
 
 .text-center {
@@ -117,12 +122,28 @@ ul {
   padding: 5rem;
 }
 
+.mt-2 {
+  margin-top: 2rem;
+}
+
+.mt-3 {
+  margin-top: 3rem;
+}
+
 .login-form {
   /* padding-inline: 10rem; */
   width: 80%;
   margin-inline: auto;
 }
 
-.p-5 {
-  padding: 5rem;
+.pt-5 {
+  padding-top: 5rem;
+}
+
+.pt-3 {
+  padding-top: 3rem;
+}
+
+.pt-2 {
+  padding-top: 2rem;
 }
