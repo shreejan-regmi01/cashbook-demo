@@ -12,6 +12,7 @@ import BusinessCategoryCard from "../components/add-business/BusinessCategoryCar
 
 export default function AddBusiness() {
   const [currentStep, setCurrentStep] = useState(1);
+  const [selectedCategory, setSelectedCategory] = useState("");
 
   const toggleNextStep = () => {
     setCurrentStep(currentStep + 1);
@@ -20,6 +21,43 @@ export default function AddBusiness() {
   const toggleBack = () => {
     setCurrentStep(Math.max(1, currentStep - 1));
   };
+
+  const chooseCategory = (id) => {
+    setSelectedCategory(id);
+  };
+
+  const categories = [
+    {
+      image: agricultureImage,
+      category: "Agriculture",
+      id: "agriculture",
+    },
+    {
+      image: constructionImage,
+      category: "Construction",
+      id: "construction",
+    },
+    {
+      image: educationImage,
+      category: "Education",
+      id: "education",
+    },
+    {
+      image: electronicsImage,
+      category: "Electronics",
+      id: "electronics",
+    },
+    {
+      image: financialImage,
+      category: "Financial",
+      id: "financial",
+    },
+    {
+      image: foodImage,
+      category: "Restaurant",
+      id: "restaurant",
+    },
+  ];
 
   return (
     <>
@@ -54,38 +92,22 @@ export default function AddBusiness() {
               <Typography.Text style={{ color: "darkgray" }}>
                 This will help us personalize your app experience
               </Typography.Text>
-              <Flex vertical={true} gap="middle" className="mt-2">
-                <Flex gap="middle" style={{ flexGrow: 1 }}>
-                  <BusinessCategoryCard
-                    image={agricultureImage}
-                    category="Agriculture"
-                  />
-                  <BusinessCategoryCard
-                    image={constructionImage}
-                    category="Construction"
-                  />
-                </Flex>
-                <Flex gap="middle">
-                  <BusinessCategoryCard
-                    image={educationImage}
-                    category="Education"
-                  />
-                  <BusinessCategoryCard
-                    image={electronicsImage}
-                    category="Electronics"
-                  />
-                </Flex>
-                <Flex gap="middle">
-                  <BusinessCategoryCard
-                    image={financialImage}
-                    category="Financial"
-                  />
-                  <BusinessCategoryCard
-                    image={foodImage}
-                    category="Restaurant"
-                  />
-                </Flex>
-              </Flex>
+              <Row
+                gutter={[20, 16]}
+                style={{ paddingInline: "2rem" }}
+                className="mt-2"
+              >
+                {categories.map(({ id, image, category }) => (
+                  <Col span={12} key={id}>
+                    <BusinessCategoryCard
+                      image={image}
+                      category={category}
+                      selected={selectedCategory === id}
+                      onClick={() => chooseCategory(id)}
+                    />
+                  </Col>
+                ))}
+              </Row>
             </>
           )
         }

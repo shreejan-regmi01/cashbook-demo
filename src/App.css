@@ -122,6 +122,10 @@ p {
   padding: 5rem;
 }
 
+.mt-1 {
+  margin-top: 1rem;
+}
+
 .mt-2 {
   margin-top: 2rem;
 }
@@ -146,4 +150,17 @@ p {
 
 .pt-2 {
   padding-top: 2rem;
+}
+
+.category-select-tile {
+  border: 1px solid #c5c1c1;
+  padding: 8px 12px;
+  border-radius: 4px;
+  max-width: 210px;
+  cursor: pointer;
+}
+
+.category-select-tile.selected-category {
+  box-shadow: 0 0 0px 1px #4096ff;
+  background-color: #4096ff3b;
 }
