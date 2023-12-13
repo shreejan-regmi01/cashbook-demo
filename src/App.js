@@ -22,9 +22,9 @@ function App() {
         </Menu>
       </Header> */}
       <Content className="pt-2">
-        <LoginPage />
+        {/* <LoginPage /> */}
         {/* <HomePage /> */}
-        {/* <AddBusiness /> */}
+        <AddBusiness />
       </Content>
     </Layout>
   );
