@@ -54,38 +54,48 @@ export default function AddBusiness() {
               <Typography.Text style={{ color: "darkgray" }}>
                 This will help us personalize your app experience
               </Typography.Text>
-              <Flex vertical={true} gap="middle" className="mt-2">
-                <Flex gap="middle" style={{ flexGrow: 1 }}>
+              <Row
+                gutter={[20, 16]}
+                style={{ paddingInline: "2rem" }}
+                className="mt-2"
+              >
+                <Col span={12}>
                   <BusinessCategoryCard
                     image={agricultureImage}
                     category="Agriculture"
                   />
+                </Col>
+                <Col span={12}>
                   <BusinessCategoryCard
                     image={constructionImage}
                     category="Construction"
                   />
-                </Flex>
-                <Flex gap="middle">
+                </Col>
+                <Col span={12}>
                   <BusinessCategoryCard
                     image={educationImage}
                     category="Education"
                   />
+                </Col>
+                <Col span={12}>
                   <BusinessCategoryCard
                     image={electronicsImage}
                     category="Electronics"
                   />
-                </Flex>
-                <Flex gap="middle">
+                </Col>
+                <Col span={12}>
                   <BusinessCategoryCard
                     image={financialImage}
                     category="Financial"
                   />
+                </Col>
+                <Col span={12}>
                   <BusinessCategoryCard
                     image={foodImage}
                     category="Restaurant"
                   />
-                </Flex>
-              </Flex>
+                </Col>
+              </Row>
             </>
           )
         }

@@ -9,9 +9,10 @@ export default function BusinessCategoryCard({ image, category = "other" }) {
         border: "1px solid  #c5c1c1",
         padding: "8px 12px",
         borderRadius: "4px",
+        maxWidth: "210px",
       }}
     >
-      <div style={{ width: "100%" }}>
+      <div>
         <img src={image} width="40px" alt="agriculture" />
       </div>
       <div>
