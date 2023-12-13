@@ -1,14 +1,16 @@
-// import { useState } from "react";
 import { Button, Form, Input, notification } from "antd";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 function LoginForm() {
   const [api, contextHolder] = notification.useNotification();
   const [form] = Form.useForm();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const onFinish = (values) => {
-    // console.log(values);
+  const navigate = useNavigate();
+
+  const onFinish = (_) => {
     api.success({
       message: "Success",
       style: {
@@ -16,6 +18,7 @@ function LoginForm() {
       },
       duration: 1,
     });
+    navigate("/home");
   };
 
   const onFinishFailed = (errInfo) => {

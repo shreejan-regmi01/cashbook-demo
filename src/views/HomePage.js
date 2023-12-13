@@ -1,9 +1,10 @@
 import { Button, Flex, Typography } from "antd";
-import { ExclamationCircleOutlined } from "@ant-design/icons";
 import companyImage from "../assets/images/company.png";
 import { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 export default function HomePage() {
+  const navigate = useNavigate();
+
   const [atleastOneBusinessAvailable, setAtleastOneBusinessAvailable] =
     useState(false);
   return (
@@ -17,11 +18,16 @@ export default function HomePage() {
           className="mt-2"
         >
           <div>
-            <img src={companyImage} style={{ maxWidth: "100px" }} />
+            <img
+              src={companyImage}
+              style={{ maxWidth: "100px" }}
+              alt="company illustration"
+            />
           </div>
-          {/* <ExclamationCircleOutlined style={{ fontSize: "5rem" }} /> */}
           <Typography.Title>No business added</Typography.Title>
-          <Button type="primary">Add a business</Button>
+          <Button type="primary" onClick={() => navigate("/add-business")}>
+            Add a business
+          </Button>
         </Flex>
       )}
     </>

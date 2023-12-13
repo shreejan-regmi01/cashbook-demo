@@ -70,7 +70,7 @@ export default function AddBusiness() {
           currentStep === 1 && (
             <>
               <Typography.Title level={3}>Add Business Name</Typography.Title>
-              <Form layout="vertical">
+              <Form layout="vertical" style={{ width: "70%" }}>
                 <Form.Item name="businessName">
                   <Input
                     addonBefore={<HomeOutlined />}
