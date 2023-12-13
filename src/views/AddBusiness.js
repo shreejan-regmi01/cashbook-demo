@@ -12,6 +12,7 @@ import BusinessCategoryCard from "../components/add-business/BusinessCategoryCar
 
 export default function AddBusiness() {
   const [currentStep, setCurrentStep] = useState(1);
+  const [selectedCategory, setSelectedCategory] = useState("");
 
   const toggleNextStep = () => {
     setCurrentStep(currentStep + 1);
@@ -20,6 +21,43 @@ export default function AddBusiness() {
   const toggleBack = () => {
     setCurrentStep(Math.max(1, currentStep - 1));
   };
+
+  const chooseCategory = (id) => {
+    setSelectedCategory(id);
+  };
+
+  const categories = [
+    {
+      image: agricultureImage,
+      category: "Agriculture",
+      id: "agriculture",
+    },
+    {
+      image: constructionImage,
+      category: "Construction",
+      id: "construction",
+    },
+    {
+      image: educationImage,
+      category: "Education",
+      id: "education",
+    },
+    {
+      image: electronicsImage,
+      category: "Electronics",
+      id: "electronics",
+    },
+    {
+      image: financialImage,
+      category: "Financial",
+      id: "financial",
+    },
+    {
+      image: foodImage,
+      category: "Restaurant",
+      id: "restaurant",
+    },
+  ];
 
   return (
     <>
@@ -59,42 +97,16 @@ export default function AddBusiness() {
                 style={{ paddingInline: "2rem" }}
                 className="mt-2"
               >
-                <Col span={12}>
-                  <BusinessCategoryCard
-                    image={agricultureImage}
-                    category="Agriculture"
-                  />
-                </Col>
-                <Col span={12}>
-                  <BusinessCategoryCard
-                    image={constructionImage}
-                    category="Construction"
-                  />
-                </Col>
-                <Col span={12}>
-                  <BusinessCategoryCard
-                    image={educationImage}
-                    category="Education"
-                  />
-                </Col>
-                <Col span={12}>
-                  <BusinessCategoryCard
-                    image={electronicsImage}
-                    category="Electronics"
-                  />
-                </Col>
-                <Col span={12}>
-                  <BusinessCategoryCard
-                    image={financialImage}
-                    category="Financial"
-                  />
-                </Col>
-                <Col span={12}>
-                  <BusinessCategoryCard
-                    image={foodImage}
-                    category="Restaurant"
-                  />
-                </Col>
+                {categories.map(({ id, image, category }) => (
+                  <Col span={12} key={id}>
+                    <BusinessCategoryCard
+                      image={image}
+                      category={category}
+                      selected={selectedCategory === id}
+                      onClick={() => chooseCategory(id)}
+                    />
+                  </Col>
+                ))}
               </Row>
             </>
           )

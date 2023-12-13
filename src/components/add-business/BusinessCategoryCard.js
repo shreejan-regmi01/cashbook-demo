@@ -1,16 +1,23 @@
 import { Flex } from "antd";
 
-export default function BusinessCategoryCard({ image, category = "other" }) {
+export default function BusinessCategoryCard({
+  image,
+  category = "other",
+  onClick,
+  selected,
+}) {
   return (
     <Flex
       gap="middle"
       align="center"
-      style={{
-        border: "1px solid  #c5c1c1",
-        padding: "8px 12px",
-        borderRadius: "4px",
-        maxWidth: "210px",
-      }}
+      // style={{
+      //   border: "1px solid  #c5c1c1",
+      //   padding: "8px 12px",
+      //   borderRadius: "4px",
+      //   maxWidth: "210px",
+      // }}
+      className={`category-select-tile ${selected && "selected-category"}`}
+      onClick={onClick}
     >
       <div>
         <img src={image} width="40px" alt="agriculture" />
